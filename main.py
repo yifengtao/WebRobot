@@ -10,7 +10,7 @@ MaxLigand = 1000
 
 pattern = re.compile('Best*')
 
-outputBase = '/Users/yifeng/Documents/Github/localData'
+outputBase = '/Users/yifeng/Documents/Github/localData/'
 
 class process(HTMLParser):
     html_text = False
@@ -30,10 +30,14 @@ def upload(count):
     br.set_handle_robots(False)
     br.open('http://zincpharmer.csb.pitt.edu/pharmville/')
     br.form = [form for form in br.forms()][0]
-    form['receptor'] = ['vp40']
+    #print br.form
+    print br 
+    form['receptor'] = ['traf2']
     form.add_file( open(outputBase+str(count)+'.sdf'), 'text/plain', 'test.sdf')
-    form['usrid'] = 'yifengt'
+    form['userid'] = 'yifengt'
     form['name'] = 'Yifeng'
+    
+    #print form
     response = br.submit()
     # analysis
     print str(count)+'.sdf'
@@ -42,32 +46,13 @@ def upload(count):
     analysis.close()
     br.close()
 
+if __name__ == '__main__':
+    
+    count = 3
 
-count = 1000
-
-for i in range(847, count + 1, 1):
-    upload(i)
-print '\nAll submitted'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    for i in range(1, count + 1, 1):
+        #print i
+        upload(i)
+    print '\nAll submitted'
 
 
