@@ -27,16 +27,18 @@ class process(HTMLParser.HTMLParser):
 def upload(count):
     br = Browser()
     br.set_handle_robots(False)
-    br.open('http://zincpharmer.csb.pitt.edu/pharmville/')
-    form = list(br.forms())[0]
-    br.form = form 
-    
-    form['receptor'] = ['traf2']
-    # add_file(self, file_object, content_type=None, filename=None)
-    form.add_file( open(outputBase+str(count)+'.sdf'), 'text/plain', 'upload.sdf')
-    form['userid'] = 'yifengt'
-    form['name'] = 'Test'
-    
+    br.open('http://zincpharmer.csb.pitt.edu/pharmer.html')
+    #form = list(br.forms())[0]
+    #br.form = form 
+    formcount=0
+    for form in br.forms():  
+        if str(form.attrs['id']) == 'receptorForm': break
+        formcount=formcount+1
+    br.select_form(nr=formcount)
+    form = br.form
+    print form
+
+    form.add_file( open(outputBase+str(count)+'.sdf'), 'text/plain', 'receptor.pdb')    
     #print form
     response = br.submit()
     # print response.read()
