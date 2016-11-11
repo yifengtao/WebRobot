@@ -33,7 +33,9 @@ def upload(count):
     
     form['receptor'] = ['traf2']
     # add_file(self, file_object, content_type=None, filename=None)
-    form.add_file( open(outputBase+str(count)+'.sdf'), 'text/plain', 'upload.sdf')
+    form.add_file( open(outputBase+'minimized_results.sdf'), 'text/plain', 'upload.sdf')
+
+    #form.add_file( open(outputBase+str(count)+'.sdf'), 'text/plain', 'upload.sdf')
     form['userid'] = 'yifengt'
     form['name'] = 'Test'
     
@@ -49,7 +51,7 @@ def upload(count):
 
 if __name__ == '__main__':
     
-    count = 1
+    count = 2
 
     for i in range(1, count + 1, 1):
         #print i
