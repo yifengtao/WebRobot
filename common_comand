@@ -1,3 +1,4 @@
+sed -n 1,100p filename_full.txt > filename1.txt
 cat *.sdf > refine1.sdf
 ../sdsorter.static -sort minimizedAffinity -reduceconfs 1 -nbest 200 refine1.sdf refine2.sdf
 ../smina.static --autobox_ligand ../localData/raw/1ca9_lig.sdf -r ../localData/raw/1ca9_rec.pdb -l refine2.sdf -o refine3.sdf --exhaustiveness 12
