@@ -2,9 +2,9 @@ from multiprocessing import Pool
 import subprocess
 import glob,os
 
-lut = ['Compound_000000001_000025000','Compound_002500001_002525000']
-def f(content):
-    subprocess.call('../smina.static --autobox_ligand ../localData/raw/1ca9_lig.sdf -r ../localData/raw/1ca9_rec.pdb -l '+content+'.sdf.gz -o '+content+'.sdf --exhaustiveness 1', shell=True)
+def f(fn):
+    subprocess.call('../smina.static --autobox_ligand ../localData/raw/1ca9_lig.sdf -r ../localData/raw/1ca9_rec.pdb -l inputData/'+fn+'.sdf.gz -o outputData/'+fn+'.sdf --exhaustiveness 1 > outputData/log_'+fn+'.txt', shell=True)
+    subprocess.call('../sdsorter.static -sort minimizedAffinity -reduceconfs 1 -nbest 1000 outputData/'+fn+'.sdf refinedData/'+fn+'_refined.sdf', shell=True)
 
 filename = list()
 os.chdir('inputData')
@@ -12,15 +12,9 @@ for file in glob.glob('*.sdf.gz'):
     filename.append(file[:-7])
 os.chdir('..')
 
-#pool = Pool(processes=2)
-#pool.map(f,lut)
+
+pool = Pool(processes=29)
+pool.map(f,filename)
 
 
 
-#out1 = pool.apply_async(f1())
-#out2 = pool.appy_async(f2())
-#pool.close()
-#pool.join()
-#final = FinalProcess(out1,out2)
-#subprocess.call(['../smina.static','--autobox_ligand','../localData/raw/1ca9_lig.sdf','-r','../localData/raw/1ca9_rec.pdb','-l','Compound_000000001_000025000.sdf.gz','-o','Compound_000000001_000025000.sdf'])
-#subprocess.call(['../smina.static','--autobox_ligand','../localData/raw/1ca9_lig.sdf','-r','../localData/raw/1ca9_rec.pdb','-l','Compound_002500001_002525000.sdf.gz','-o','Compound_002500001_002525000.sdf.gz'])
