@@ -2,6 +2,7 @@ from multiprocessing import Pool
 import subprocess
 import glob,os
 
+# TODO: remember to limit the weight of molecular before docking
 # function of calculating the sdf from the file fn.
 def f(fn):
     subprocess.call('../smina.static --autobox_ligand ../localData/raw/1ca9_lig.sdf -r ../localData/raw/1ca9_rec.pdb -l inputData/'+fn+'.sdf.gz -o outputData/'+fn+'.sdf --exhaustiveness 1 > outputData/log_'+fn+'.txt', shell=True)
