@@ -1,6 +1,8 @@
 '''
-author: Yifeng Tao
-acknowledgement: based on Weiguang Mao's scripts.
+Not used in reality.
+Author: Yifeng Tao
+Acknowledgement: Based on Weiguang Mao's scripts.
+Function: Automated submit results.
 '''
 
 import re
@@ -32,17 +34,11 @@ def upload(count):
     br.form = form 
     
     form['receptor'] = ['traf2']
-    # add_file(self, file_object, content_type=None, filename=None)
     form.add_file( open(outputBase+'minimized_results.sdf'), 'text/plain', 'upload.sdf')
-
-    #form.add_file( open(outputBase+str(count)+'.sdf'), 'text/plain', 'upload.sdf')
     form['userid'] = 'yifengt'
     form['name'] = 'Test'
-    
-    #print form
     response = br.submit()
-    # print response.read()
-    # analysis
+    
     print str(count)+'.sdf'
     analysis = process()
     analysis.feed(response.read())
@@ -50,12 +46,8 @@ def upload(count):
     br.close()
 
 if __name__ == '__main__':
-    
     count = 2
-
     for i in range(1, count + 1, 1):
-        #print i
         upload(i)
     print '\nAll submitted'
-
-
+    
