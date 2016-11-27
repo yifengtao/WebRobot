@@ -11,7 +11,11 @@ mkdir inputData
 mkdir outputData
 ```
 * Under the parent directory of WebeRobot
-```
+```bash
 mkdir raw
 ```
-Put ligand file (*.sdf/*.pdb) and receptor file (*.pdb) under the raw directory.
+Put ligand file (\*.sdf/\*.pdb) and receptor file (\*.pdb) under the *raw* directory.
+* Run program
+```bash
+python run.py
+```
