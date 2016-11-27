@@ -10,7 +10,7 @@ See http://zincpharmer.csb.pitt.edu/pharmville/ for detailed description.
 mkdir inputData
 mkdir outputData
 ```
-* Under the parent directory of WebeRobot
+* Under the parent directory of WebRobot
 ```bash
 mkdir raw
 ```
