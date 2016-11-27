@@ -5,7 +5,13 @@ Scripts to realize ligand searching and docking task automatically.
 See http://zincpharmer.csb.pitt.edu/pharmville/ for detailed description.
 
 ## Usage
-* ```bash
+* Under directory of WebRobot
+```bash
 mkdir inputData
+mkdir outputData
 ```
-* mkdir output
+* Under the parent directory of WebeRobot
+```
+mkdir raw
+```
+Put ligand file (*.sdf/*.pdb) and receptor file (*.pdb) under the raw directory.
