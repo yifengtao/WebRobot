@@ -20,4 +20,5 @@ Put ligand file (\*.sdf/\*.pdb) and receptor file (\*.pdb) under the *raw* direc
 python run.py
 ```
 * Extract final results
+
 Please check *common_command*.
