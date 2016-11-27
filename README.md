@@ -24,5 +24,4 @@ python run.py
 Please check *common_command*.
 ## Results
 Used in the 2nd and 3rd task.
-
 ![alt tag](https://github.com/yifengtao/WebRobot/blob/master/rank.jpg)
