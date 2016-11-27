@@ -1,4 +1,7 @@
-# sed -n 1,100p filename_full.txt > filename1.txt
+# aggregate all the *.sdf files.
 cat outputData/*.sdf > refine1.sdf
+# sort and refine the sdf file.
 ../sdsorter.static -sort minimizedAffinity -reduceconfs 1 -nbest 200 refine1.sdf refine2.sdf
-../smina.static --autobox_ligand ../localData/raw/1ca9_lig.sdf -r ../localData/raw/1ca9_rec.pdb -l refine2.sdf -o refine3.sdf --exhaustiveness 12
+# redock the refined sdf file.
+# ../smina.static --autobox_ligand ../raw/3BEJ_lig_edit.sdf -r ../raw/3BEJ_REC.pdb -l refine2.sdf -o refine3.sdf --exhaustiveness 12
+#EOF.
