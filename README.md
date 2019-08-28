@@ -1,5 +1,5 @@
 # WebRobot
-Scripts to realize ligand searching and docking task automatically.
+Scripts to realize ligand searching and docking task automatically in the course: [Introduction to Computational Structural Biology](https://catalog.upp.pitt.edu/preview_course_nopop.php?catoid=136&coid=735195).
 
 ## Task
 See http://zincpharmer.csb.pitt.edu/pharmville/ for detailed description.
